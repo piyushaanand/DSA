@@ -15,7 +15,6 @@ class Solution {
             nrow = row + 1;
             ncol = 0;
         }
-
         if (board[row][col] != '.') {
             return helper(board, nrow, ncol);
         } else {
@@ -35,14 +34,10 @@ class Solution {
 
     public boolean isSafe(char[][] board, int row, int col, int num) {
         for (int i = 0; i < board.length; i++) {
-            if (board[row][i] == (char) (num + '0')) {
-                return false;
-            }
-            if (board[i][col] == (char) (num + '0')) {
+            if (board[row][i] == (char) (num + '0') || board[i][col] == (char) (num + '0')) {
                 return false;
             }
         }
-        //Grid
         int sr = (row / 3) * 3;
         int sc = (col / 3) * 3;
         for (int i = sr; i < sr + 3; i++) {
