@@ -1,10 +1,10 @@
 class Solution {
     public boolean exist(char[][] board, String word) {
-        int m = board.length;
-        int n = board[0].length;
-        boolean vis[][] = new boolean[m][n];
-        for(int i = 0 ; i < m ; i++){
-            for(int j = 0  ; j < n ; j++){
+        int n = board.length;
+        int m = board[0].length;
+        boolean vis[][] = new boolean[n][m];
+        for(int i = 0 ; i < n ; i++){
+            for(int j = 0 ; j < m ; j++){
                 if(board[i][j] == word.charAt(0)){
                     if(backTrack(board, word, vis, i, j, 0)){
                         return true;
@@ -20,7 +20,8 @@ class Solution {
             return false;
         }
         vis[i][j] = true;
-        if(backTrack(board, word, vis, i+1, j, idx+1) || backTrack(board, word, vis, i-1, j, idx+1) || backTrack(board, word, vis, i, j+1, idx+1) || backTrack(board, word, vis, i, j-1, idx+1)){
+        if(backTrack(board, word, vis, i+1, j, idx+1) || backTrack(board, word, vis, i-1, j, idx+1)
+        || backTrack(board, word, vis, i, j+1, idx+1) || backTrack(board, word, vis, i, j-1, idx+1)){
             return true;
         }
         vis[i][j] = false;
