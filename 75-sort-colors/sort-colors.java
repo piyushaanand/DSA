@@ -18,9 +18,9 @@ class Solution {
                 m++;
             }else{
                 swap(nums, m, h);
-                    h--;
-                }
+                h--;
             }
+        }
         //Bruteforce Approach
         // int count0 = 0;
         // int count1 = 0;
