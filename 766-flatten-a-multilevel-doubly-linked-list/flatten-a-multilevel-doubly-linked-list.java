@@ -16,13 +16,17 @@ class Solution {
         Node curr = head;
         while(curr != null){
             if(curr.child != null){
+                //1st case - merge with child
                 Node next = curr.next;
                 curr.next = flatten(curr.child);
                 curr.next.prev = curr;
                 curr.child = null;
+
+                //Move towards right
                 while(curr.next != null){
                     curr = curr.next;
                 }
+                //merge next
                 if(next != null){
                     curr.next = next;
                     next.prev = curr;
